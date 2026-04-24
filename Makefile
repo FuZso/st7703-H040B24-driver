@@ -14,13 +14,13 @@ clean:
 
 install: all
 	sudo $(MAKE) -C $(KERNEL_DIR) M=$(PWD) modules_install
-	#sudo depmod -a $(KERNEL_VERSION)
+	sudo depmod -a $(KERNEL_VERSION)
 
 load:
-	sudo modprobe panel-sitronix-st7703
+	sudo modprobe panel-sitronix-st7703-H040B24
 
 unload:
-	sudo modprobe -r panel-sitronix-st7703
+	sudo modprobe -r panel-sitronix-st7703-H040B24
 
 dto-panel:
 	sudo dtc -@ -I dts -O dtb -o st7703-H040B24.dtbo st7703-H040B24-overlay.dts
